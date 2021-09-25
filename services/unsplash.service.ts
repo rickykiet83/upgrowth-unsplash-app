@@ -1,15 +1,36 @@
-import { APIResponse } from './../models/api-response.model';
+import { Photo, SearchedPhoto } from './../models/photo.model';
+
 import BaseHttpService from "./base-http.service";
-import { Photo } from './../models/photo.model';
 
 class UnsplashService extends BaseHttpService {
-  async getRandom(numberOfPhotos: number = 10): Promise<Photo[]> {
-    const response = (await this.get<Photo[]>(`/photos/random?count=${numberOfPhotos}`)) as unknown as Photo[];
+  private apiKey: string = '';
+  constructor() {
+    super();
+    this.apiKey = this.getApiKey();
+    if (!this.apiKey) {
+      throw new Error('Unsplash API Key must be provided!');
+    }
+  }
+
+  getApiKey(): string {
+    return process.env.UNSPLASH_API_KEY || '';
+  }
+
+  get BASE_URL(): string {
+    return process.env.NEXT_PUBLIC_UNSPLASH_API || `https://api.unsplash.com`;
+  }
+
+  private get clientId(): string {
+    return `client_id=${this.apiKey}`;
+  }
+
+  async getRandomAsync(query: string | string[] = '', numberOfPhotos: number = 10, page: number): Promise<Photo[]> {
+    const response = (await this.get<Photo[]>(`/photos/random?${this.clientId}&count=${numberOfPhotos}`)) as unknown as Photo[];
     return response;
   }
 
-  async searchPhotos(query: string, page: number = 1): Promise<APIResponse<Photo>> {
-    const response = (await this.get<Photo>(`/search/photos/?query=${query}`)) as APIResponse<Photo>;
+  async searchPhotosAsync(query: string, page: number = 1): Promise<SearchedPhoto> {
+    const response = (await this.get<Photo>(`/search/photos/?query=${query}&page=${page}`)) as unknown as SearchedPhoto;
     return response;
   }
 }

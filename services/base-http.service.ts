@@ -3,21 +3,16 @@ import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from "axios";
 import { APIErrorResponse } from "../models/api-error-response.model";
 import { APIResponse } from "../models/api-response.model";
 
-export default class BaseHttpService {
-  private get apiKey(): string {
-    return process.env.UNSPLASH_API_KEY || '';
-  }
-
-  private get BASE_URl(): string {
-    return process.env.BASE_URL || `https://api.unsplash.com`;
-  }
+export default abstract class BaseHttpService {
+  abstract getApiKey(): string;
+  abstract get BASE_URL(): string;
 
   protected async get<T = any>(
     endpoint: string,
     options: AxiosRequestConfig = {}
   ): Promise<APIResponse<T> | void> {
     Object.assign(options, this._getCommonOptions());
-    const apiEndpoint = `${this.BASE_URl}${endpoint}&client_id=${this.apiKey}`;
+    const apiEndpoint = `${this.BASE_URL}${endpoint}`;
 
     return axios
       .get<APIResponse<T>>(`${apiEndpoint}`, options)

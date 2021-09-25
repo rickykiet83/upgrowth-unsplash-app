@@ -17,3 +17,9 @@ export interface Photo {
   likes: number;
   tags: ITag[];
 }
+
+export interface SearchedPhoto {
+  total: number,
+  total_pages: number;
+  results: Photo[];
+}
