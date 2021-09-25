@@ -19,7 +19,7 @@ function MainNavigation() {
         <ul className='nav nav-pills'>
           <li className='nav-item'>
             <Link href='/' passHref>
-              <Nav.Link>Home</Nav.Link>
+              <Nav.Link className='active'>Home</Nav.Link>
             </Link>
           </li>
           <li className='nav-item'>
