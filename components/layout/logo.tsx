@@ -4,7 +4,7 @@ import React from 'react';
 function Logo() {
   return (
     <Link href='/' passHref>
-      <img src='/images/logo.svg' className='mx-4' />
+      <img src='/assets/images/logo.svg' className='mx-4' />
     </Link>
   );
 }

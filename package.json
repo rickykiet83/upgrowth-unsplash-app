@@ -11,9 +11,39 @@
   "engines": {
     "node": ">=14.x"
   },
+  "next-unused": {
+    "alias": {
+      "@lib/*": [
+        "lib/*"
+      ],
+      "@assets/*": [
+        "assets/*"
+      ],
+      "@config/*": [
+        "config/*"
+      ],
+      "@components/*": [
+        "components/*"
+      ],
+      "@utils/*": [
+        "utils/*"
+      ]
+    },
+    "debug": true,
+    "include": [
+      "components",
+      "lib",
+      "pages"
+    ],
+    "exclude": [],
+    "entrypoints": [
+      "pages"
+    ]
+  },
   "dependencies": {
     "axios": "^0.21.4",
     "bootstrap": "^5.1.1",
+    "classnames": "^2.2.6",
     "next": "11.1.2",
     "node-sass": "^4.14.1",
     "react": "17.0.2",

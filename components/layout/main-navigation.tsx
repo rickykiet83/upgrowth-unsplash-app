@@ -1,7 +1,9 @@
+import React, { useState } from 'react';
+
 import Link from 'next/link';
 import Logo from './logo';
 import { Nav } from 'react-bootstrap';
-import React from 'react';
+import { Searchbar } from '@components/common';
 
 function MainNavigation() {
   return (
@@ -9,12 +11,7 @@ function MainNavigation() {
       <header className='d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom'>
         <Logo />
         <div className='col-12 col-lg-8 mb-3 mb-lg-0 me-lg-3'>
-          <input
-            type='search'
-            className='form-control'
-            placeholder='Search...'
-            aria-label='Search'
-          />
+          <Searchbar />
         </div>
         <ul className='nav nav-pills'>
           <li className='nav-item'>
