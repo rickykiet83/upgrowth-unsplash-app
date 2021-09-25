@@ -13,7 +13,7 @@ class UnsplashService extends BaseHttpService {
   }
 
   getApiKey(): string {
-    return process.env.UNSPLASH_API_KEY || '';
+    return process.env.NEXT_PUBLIC_UNSPLASH_API_KEY || '';
   }
 
   get BASE_URL(): string {
