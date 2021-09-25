@@ -1,29 +1,33 @@
-import { Photo, SearchedPhoto } from '../models/photo.model';
-import React, { useEffect, useState } from 'react';
+import type { GetStaticProps, InferGetStaticPropsType } from 'next';
 
-import Head from 'next/head';
-import type { NextPage } from 'next';
 import PhotoListItem from '../components/photos/PhotoListItem';
-import axios from 'axios';
-import baseUrl from '../utils/baseUrl';
+import { PhotoService } from '../services/photo.service';
+import React from 'react';
 
-const Home: NextPage = () => {
-  const [photos, setPhotos] = useState<Photo[]>([]);
-  useEffect(() => {
-    (async () => {
-      const response = await axios.get(
-        `${baseUrl}/api/photos/random?count=50&page=1`
-      );
+export const getStaticProps: GetStaticProps = async () => {
+  const photoService = new PhotoService();
 
-      if (response) setPhotos(response.data);
-    })();
-  }, []);
+  let response = await photoService.getRandomAsync(10, 1);
+  const photos = await response;
+  if (!photos) {
+    return {
+      notFound: true,
+    };
+  }
 
+  return {
+    props: {
+      photos,
+    },
+  };
+};
+
+export default function Home({
+  photos,
+}: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <div className='container'>
       <PhotoListItem photos={photos} />
     </div>
   );
-};
-
-export default Home;
+}

@@ -4,8 +4,8 @@ import { APIErrorResponse } from "../models/api-error-response.model";
 import { APIResponse } from "../models/api-response.model";
 
 export default abstract class BaseHttpService {
-  abstract getApiKey(): string;
-  abstract get BASE_URL(): string;
+  protected abstract getApiKey(): string;
+  protected abstract get BASE_URL(): string;
 
   protected async get<T = any>(
     endpoint: string,
