@@ -7,7 +7,7 @@ Upgrowth Coding Assignment:
 
 ## Tech stack
 
-- [React][cli]
+- [React][react]
 - [Next.js][nextjs]
 - UI modules:
   - [Bootstrap][bootstrap]
