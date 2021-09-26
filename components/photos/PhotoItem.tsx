@@ -25,7 +25,11 @@ export default function PhotoItem({ photo }: { photo: Photo }) {
         </h2>
         <p className={classes.icon_links}>
           <a onClick={toggleFavoritesStatusHandler} href='#'>
-            <span className={classes.icon_heart} />
+            <span
+              className={
+                itemIsFavorite ? classes.icon_heart_active : classes.icon_heart
+              }
+            />
           </a>
           <a href='#'>
             <span className={classes.icon_eye} />

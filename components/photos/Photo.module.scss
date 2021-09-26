@@ -158,6 +158,10 @@ figure.effect_zoe p.icon_links a span::before {
 .icon_heart::before {
 	content: '\e024';
 }
+.icon_heart_active::before {
+	content: '\e024';
+	color: #d60e96;
+}
 
 figure.effect_zoe h2 {
 	display: inline-block;
