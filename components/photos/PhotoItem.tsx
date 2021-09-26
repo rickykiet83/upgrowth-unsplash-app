@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 
 import FavoritesContext from '@store/favorites-context';
-import Image from 'next/image';
 import { Photo } from '@models/photo.model';
+import classes from './Photo.module.scss';
 
 export default function PhotoItem({ photo }: { photo: Photo }) {
   const favoritesCtx = useContext(FavoritesContext);
@@ -17,12 +17,25 @@ export default function PhotoItem({ photo }: { photo: Photo }) {
   }
 
   return (
-    <li className='m-2'>
-      <img
-        onClick={toggleFavoritesStatusHandler}
-        src={photo.urls.regular}
-        alt={photo.alt_description}
-      />
-    </li>
+    <figure className={classes.effect_zoe}>
+      <img src={photo.urls.regular} alt={photo.alt_description} />
+      <figcaption>
+        <h2>
+          Creative <span>Zoe</span>
+        </h2>
+        <p className={classes.icon_links}>
+          <a onClick={toggleFavoritesStatusHandler} href='#'>
+            <span className={classes.icon_heart} />
+          </a>
+          <a href='#'>
+            <span className={classes.icon_eye} />
+          </a>
+        </p>
+        <p className={classes.description}>
+          Zoe never had the patience of her sisters. She deliberately punched
+          the bear in his face.
+        </p>
+      </figcaption>
+    </figure>
   );
 }
