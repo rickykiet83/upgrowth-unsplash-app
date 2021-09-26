@@ -5,9 +5,13 @@ import Link from 'next/link';
 import Logo from './logo';
 import { Nav } from 'react-bootstrap';
 import { Searchbar } from '@components/common';
+import { useRouter } from 'next/router';
 
 function MainNavigation() {
+  const { pathname } = useRouter();
+
   const favoritesCtx = useContext(FavoritesContext);
+
   return (
     <div className='container'>
       <header className='d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom'>
@@ -18,12 +22,14 @@ function MainNavigation() {
         <ul className='nav nav-pills'>
           <li className='nav-item'>
             <Link href='/' passHref>
-              <Nav.Link className='active'>Home</Nav.Link>
+              <Nav.Link className={pathname === '/' ? 'active' : ''}>
+                Home
+              </Nav.Link>
             </Link>
           </li>
           <li className='nav-item'>
             <Link href='/favorites' passHref>
-              <Nav.Link>
+              <Nav.Link className={pathname === '/favorites' ? 'active' : ''}>
                 My Favorites
                 <span className='badge bg-secondary mx-1'>
                   {favoritesCtx.totalFavorites}

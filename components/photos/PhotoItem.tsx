@@ -20,9 +20,6 @@ export default function PhotoItem({ photo }: { photo: Photo }) {
     <figure className={classes.effect_zoe}>
       <img src={photo.urls.regular} alt={photo.alt_description} />
       <figcaption>
-        <h2>
-          Creative <span>Zoe</span>
-        </h2>
         <p className={classes.icon_links}>
           <a onClick={toggleFavoritesStatusHandler} href='#'>
             <span
@@ -35,10 +32,7 @@ export default function PhotoItem({ photo }: { photo: Photo }) {
             <span className={classes.icon_eye} />
           </a>
         </p>
-        <p className={classes.description}>
-          Zoe never had the patience of her sisters. She deliberately punched
-          the bear in his face.
-        </p>
+        <p className={classes.description}>{photo.alt_description}</p>
       </figcaption>
     </figure>
   );
