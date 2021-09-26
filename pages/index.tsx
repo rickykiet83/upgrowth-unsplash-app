@@ -7,7 +7,7 @@ import React from 'react';
 export const getStaticProps: GetStaticProps = async () => {
   const photoService = new PhotoService();
 
-  let response = await photoService.getRandomAsync(10, 1);
+  let response = await photoService.getRandomAsync(50, 1);
   const photos = await response;
   if (!photos) {
     return {

@@ -21,15 +21,12 @@ export default function PhotoItem({ photo }: { photo: Photo }) {
       <img src={photo.urls.regular} alt={photo.alt_description} />
       <figcaption>
         <p className={classes.icon_links}>
-          <a onClick={toggleFavoritesStatusHandler} href='#'>
+          <a onClick={toggleFavoritesStatusHandler}>
             <span
               className={
                 itemIsFavorite ? classes.icon_heart_active : classes.icon_heart
               }
             />
-          </a>
-          <a href='#'>
-            <span className={classes.icon_eye} />
           </a>
         </p>
         <p className={classes.description}>{photo.alt_description}</p>
