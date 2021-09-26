@@ -2,7 +2,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 import { Photo } from '@models/photo.model';
-import { PhotoService } from './../../../services/photo.service';
+import { PhotoService } from '@services/photo.service';
 
 const photoService = new PhotoService();
 
