@@ -20,5 +20,8 @@ Upgrowth Coding Assignment:
 
 - `git clone https://github.com/rickykiet83/upgrowth-unsplash-app.git`
 - `cd upgrowth-unsplash-app`
+
+- Open `.env.template` and change the value of `NEXT_PUBLIC_UNSPLASH_API_KEY`
+- Create a new file `.env.local` and copy content from `.env.template`
 - `npm i`
 - `npm run dev`
