@@ -1,34 +1,24 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Upgrowth Coding Assignment:
 
-## Getting Started
+* Using the Unsplash API described here - https://unsplash.com/documentation#search-photos - create a micro app that allows a user to search for a tag and show the matching photos.
+* The request will need an API key, documented here - https://unsplash.com/documentation#public-actions
+* The app should be written in react, and it should be styled to be visually pleasing - use any libraries/frameworks you’d like to.
+* Use codepen, plunkr , repl.it or similar to host the app so we can see your source and the application running, and share the link with us when you’re done.
 
-First, run the development server:
+## Tech stack
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+- [React][cli]
+- [Next.js][nextjs]
+- UI modules:
+  - [Bootstrap][bootstrap]
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+[react]: https://reactjs.org/
+[nextjs]: https://nextjs.org/
+[bootstrap]: https://getbootstrap.com/
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Setting up development environment 🛠
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- `git clone https://github.com/rickykiet83/upgrowth-unsplash-app.git`
+- `cd upgrowth-unsplash-app`
+- `npm i`
+- `npm run dev`
