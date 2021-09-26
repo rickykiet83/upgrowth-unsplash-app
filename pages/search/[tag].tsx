@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
+import Loading from '@components/ui/Loading';
 import { Photo } from '@models/photo.model';
 import PhotoListItem from '@components/photos/PhotoListItem';
 import { PhotoService } from '@services/photo.service';
@@ -13,15 +14,15 @@ function FilteredPhotosPage() {
 
   useEffect(() => {
     (async () => {
-      if (tag) {
+      if (tag && tag.length > 0) {
         const { results } = await photoService.searchAsync(tag);
         setPhotos(results);
       }
     })();
   }, [tag]);
 
-  if (!tag) {
-    return <p className='center'>Loading....</p>;
+  if (!tag || photos.length === 0) {
+    return <Loading />;
   }
 
   return (
