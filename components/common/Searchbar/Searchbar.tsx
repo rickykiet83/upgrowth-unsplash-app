@@ -1,4 +1,7 @@
-import { FC, memo, useEffect } from 'react';
+import React, { FC, memo, useState } from 'react';
+
+import Input from '@components/ui/Input';
+import { useRouter } from 'next/router';
 
 interface Props {
   className?: string;
@@ -8,27 +11,36 @@ interface Props {
 
 const Searchbar: FC<Props> = ({
   className = 'form-control',
-  placeHolder = 'Search for photos',
+  placeHolder = 'Search for photos: coffee,office...',
   id = 'search',
 }) => {
+  const [tag, setTag] = useState('');
+  const router = useRouter();
   const handleKeyUp = (e: React.KeyboardEvent<HTMLInputElement>) => {
     e.preventDefault();
     if (e.key === 'Enter') {
-      const query = e.currentTarget.value;
-      console.log(query);
+      searchPhotosHandler();
     }
   };
+
+  function searchPhotosHandler() {
+    if (tag) {
+      const searchPath = `/search/${tag}`;
+      router.replace(searchPath);
+    }
+  }
 
   return (
     <>
       <label className='hidden' htmlFor={id}>
         Search
       </label>
-      <input
+      <Input
         id={id}
         className={className}
         placeholder={placeHolder}
         onKeyUp={handleKeyUp}
+        onChange={setTag}
       />
     </>
   );
