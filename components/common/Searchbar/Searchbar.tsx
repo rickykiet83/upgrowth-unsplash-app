@@ -1,4 +1,4 @@
-import React, { FC, memo, useState } from 'react';
+import React, { FC, memo, useEffect, useState } from 'react';
 
 import Input from '@components/ui/Input';
 import { useRouter } from 'next/router';
@@ -23,6 +23,10 @@ const Searchbar: FC<Props> = ({
     }
   };
 
+  useEffect(() => {
+    setTag('');
+  }, [router.pathname]);
+
   function searchPhotosHandler() {
     if (tag) {
       const searchPath = `/search/${tag}`;
@@ -38,6 +42,7 @@ const Searchbar: FC<Props> = ({
       <Input
         id={id}
         className={className}
+        value={tag}
         placeholder={placeHolder}
         onKeyUp={handleKeyUp}
         onChange={setTag}
