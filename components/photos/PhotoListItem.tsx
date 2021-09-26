@@ -1,4 +1,4 @@
-import { Photo } from '../../models/photo.model';
+import { Photo } from '@models/photo.model';
 import PhotoItem from './PhotoItem';
 import React from 'react';
 import classes from './PhotoList.module.scss';

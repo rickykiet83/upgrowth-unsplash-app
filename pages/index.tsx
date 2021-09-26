@@ -1,7 +1,7 @@
 import type { GetStaticProps, InferGetStaticPropsType } from 'next';
 
-import PhotoListItem from '../components/photos/PhotoListItem';
-import { PhotoService } from '../services/photo.service';
+import PhotoListItem from '@components/photos/PhotoListItem';
+import { PhotoService } from '@services/photo.service';
 import React from 'react';
 
 export const getStaticProps: GetStaticProps = async () => {

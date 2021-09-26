@@ -1,7 +1,7 @@
 import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from "axios";
 
-import { APIErrorResponse } from "../models/api-error-response.model";
-import { APIResponse } from "../models/api-response.model";
+import { APIErrorResponse } from "@models/api-error-response.model";
+import { APIResponse } from "@models/api-response.model";
 
 export default abstract class BaseHttpService {
   protected abstract getApiKey(): string;

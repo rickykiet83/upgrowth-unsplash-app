@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { Photo } from '../../models/photo.model';
+import { Photo } from '@models/photo.model';
 import React from 'react';
 
 export default function PhotoItem({ photo }: { photo: Photo }) {

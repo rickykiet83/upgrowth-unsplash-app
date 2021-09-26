@@ -1,10 +1,10 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next'
 
-import { Photo } from './../../../models/photo.model';
-import UnsplashService from '../../../services/unsplash.service';
+import { Photo } from '@models/photo.model';
+import { PhotoService } from './../../../services/photo.service';
 
-const unsplashService = new UnsplashService();
+const photoService = new PhotoService();
 
 export default async function handler(
   req: NextApiRequest,
@@ -13,7 +13,7 @@ export default async function handler(
   const { count, page, query } = req.query;
 
   try {
-    const response = await unsplashService.getRandomAsync(query, +count, +page);
+    const response = await photoService.getRandomAsync(+count, +page, query);
 
     res.status(200).json(response);
   } catch (error) {
