@@ -36,9 +36,6 @@ const Searchbar: FC<Props> = ({
 
   return (
     <>
-      <label className='hidden' htmlFor={id}>
-        Search
-      </label>
       <Input
         id={id}
         className={className}
