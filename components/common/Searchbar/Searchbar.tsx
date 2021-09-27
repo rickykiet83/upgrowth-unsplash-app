@@ -11,7 +11,7 @@ interface Props {
 
 const Searchbar: FC<Props> = ({
   className = 'form-control',
-  placeHolder = 'Search for photos: coffee,office...',
+  placeHolder = 'Search for photos: coffee,office... and press Enter',
   id = 'search',
 }) => {
   const [tag, setTag] = useState('');
