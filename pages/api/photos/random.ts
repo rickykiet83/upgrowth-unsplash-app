@@ -15,7 +15,7 @@ export default async function handler(
   try {
     const response = await photoService.getRandomAsync(+count, query);
 
-    res.status(200).json([]);
+    res.status(200).json(response);
   } catch (error) {
     console.log(error);
   }
