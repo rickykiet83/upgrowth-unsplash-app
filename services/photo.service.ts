@@ -8,8 +8,8 @@ export class PhotoService extends UnsplashService {
     return response;
   }
 
-  async searchAsync(query: string | any, page: number = 1): Promise<SearchedPhoto> {
-    const response = await super.searchPhotosAsync(query, page);
+  async searchAsync(query: string | any): Promise<SearchedPhoto> {
+    const response = await super.searchPhotosAsync(query);
     return response;
   }
 }

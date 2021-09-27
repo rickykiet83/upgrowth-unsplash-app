@@ -1,17 +1,14 @@
 import React, { useContext } from 'react';
 
 import FavoritesContext from '@store/favorites-context';
-import Link from 'next/link';
-import { Nav } from 'react-bootstrap';
-import PhotoListItem from '@components/photos/PhotoListItem';
+import PhotoItem from '@components/photos/PhotoItem';
+import classes from '@styles/Photo.module.scss';
 
 function FavoritesPage() {
   const favoritesCtx = useContext(FavoritesContext);
   let content;
   if (favoritesCtx.totalFavorites === 0) {
     content = <h3>You got no favorites yet. Start adding some?</h3>;
-  } else {
-    content = <PhotoListItem photos={favoritesCtx.favorites} />;
   }
 
   return (
@@ -27,7 +24,15 @@ function FavoritesPage() {
         </div>
       </section>
       <section>
-        <div className='py-lg-5 container'>{content}</div>
+        <div className='py-lg-5 container'>
+          <div className={classes.grid}>
+            {favoritesCtx.totalFavorites === 0
+              ? content
+              : favoritesCtx.favorites.map((photo, index) => {
+                  return <PhotoItem key={index} photo={photo} />;
+                })}
+          </div>
+        </div>
       </section>
     </>
   );

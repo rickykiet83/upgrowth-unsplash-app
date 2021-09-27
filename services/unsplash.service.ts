@@ -30,8 +30,8 @@ class UnsplashService extends BaseHttpService {
     return response;
   }
 
-  protected async searchPhotosAsync(query: string, page: number = 1): Promise<SearchedPhoto> {
-    const endpoint = `/search/photos/?${this.clientId}&query=${query}&page=${page}`;
+  protected async searchPhotosAsync(query: string): Promise<SearchedPhoto> {
+    const endpoint = `/search/photos/?${this.clientId}&query=${query}`;
     const response = (await this.get<Photo>(endpoint)) as unknown as SearchedPhoto;
     return response;
   }
