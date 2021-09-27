@@ -27,7 +27,7 @@ export default function Home({
   photos,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
-    <div className='container'>
+    <div>
       <PhotoListItem photos={photos} />
       <ScrollToTopBtn />
     </div>

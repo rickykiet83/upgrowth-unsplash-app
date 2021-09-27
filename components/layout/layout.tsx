@@ -6,7 +6,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
   return (
     <Fragment>
       <MainNavigation />
-      <main className='container'>{children}</main>
+      <main className='layout'>{children}</main>
     </Fragment>
   );
 };
