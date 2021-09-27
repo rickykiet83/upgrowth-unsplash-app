@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 
 import FavoritesContext from '@store/favorites-context';
 import { Photo } from '@models/photo.model';
-import classes from './Photo.module.scss';
+import classes from '@styles/Photo.module.scss';
 
 export default function PhotoItem({ photo }: { photo: Photo }) {
   const favoritesCtx = useContext(FavoritesContext);

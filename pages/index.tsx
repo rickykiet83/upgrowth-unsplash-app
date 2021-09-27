@@ -5,11 +5,10 @@ import { PhotoService } from '@services/photo.service';
 import React from 'react';
 import ScrollToTopBtn from '@components/ui/ScrollToTop/ScrollToTop';
 
-export const getStaticProps: GetStaticProps = async () => {
-  const photoService = new PhotoService();
+const photoService = new PhotoService();
 
-  let response = await photoService.getRandomAsync(50, 1);
-  const photos = await response;
+export const getStaticProps: GetStaticProps = async () => {
+  const photos = await photoService.getRandomAsync(30);
   if (!photos) {
     return {
       notFound: true,

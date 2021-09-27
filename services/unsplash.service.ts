@@ -24,13 +24,15 @@ class UnsplashService extends BaseHttpService {
     return `client_id=${this.apiKey}`;
   }
 
-  protected async getRandomPhotoAsync(numberOfPhotos: number = 10, page: number, query: string | string[] = ''): Promise<Photo[]> {
-    const response = (await this.get<Photo[]>(`/photos/random?${this.clientId}&query=${query}&count=${numberOfPhotos}`)) as unknown as Photo[];
+  protected async getRandomPhotoAsync(numberOfPhotos: number = 30, query: string | string[] = ''): Promise<Photo[]> {
+    const endpoint = `/photos/random?${this.clientId}&query=${query}&count=${numberOfPhotos}`;
+    const response = (await this.get<Photo[]>(endpoint)) as unknown as Photo[];
     return response;
   }
 
   protected async searchPhotosAsync(query: string, page: number = 1): Promise<SearchedPhoto> {
-    const response = (await this.get<Photo>(`/search/photos/?${this.clientId}&query=${query}&page=${page}`)) as unknown as SearchedPhoto;
+    const endpoint = `/search/photos/?${this.clientId}&query=${query}&page=${page}`;
+    const response = (await this.get<Photo>(endpoint)) as unknown as SearchedPhoto;
     return response;
   }
 }

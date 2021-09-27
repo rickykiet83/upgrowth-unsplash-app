@@ -1,5 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../styles/custom.scss';
+import '@styles/custom.scss';
 
 import type { AppProps } from 'next/app';
 import { FavoritesContextProvider } from 'store/favorites-context';

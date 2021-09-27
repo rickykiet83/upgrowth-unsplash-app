@@ -9,7 +9,7 @@ function FavoritesPage() {
   const favoritesCtx = useContext(FavoritesContext);
   let content;
   if (favoritesCtx.totalFavorites === 0) {
-    content = <p>You got no favorites yet. Start adding some?</p>;
+    content = <h3>You got no favorites yet. Start adding some?</h3>;
   } else {
     content = <PhotoListItem photos={favoritesCtx.favorites} />;
   }
@@ -27,7 +27,7 @@ function FavoritesPage() {
         </div>
       </section>
       <section>
-        <div className='py-1'>{content}</div>
+        <div className='py-lg-5 container'>{content}</div>
       </section>
     </>
   );

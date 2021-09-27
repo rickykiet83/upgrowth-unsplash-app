@@ -10,12 +10,12 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Photo[]>
 ) {
-  const { count, page, query } = req.query;
+  const { count, query } = req.query;
 
   try {
-    const response = await photoService.getRandomAsync(+count, +page, query);
+    const response = await photoService.getRandomAsync(+count, query);
 
-    res.status(200).json(response);
+    res.status(200).json([]);
   } catch (error) {
     console.log(error);
   }
