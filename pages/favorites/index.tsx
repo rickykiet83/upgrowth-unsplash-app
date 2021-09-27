@@ -20,9 +20,9 @@ function FavoritesPage() {
         <div className='row py-lg-5'>
           <div className='col-lg-6 col-md-8 mx-auto'>
             <h1 className='fw-light'>My Favorites</h1>
-            <p className='lead text-muted'>
-              {`Tap a heart icon at the bottom right of any photo, and it'll automatically show up in Favorites`}
-            </p>
+            <div className='lead text-muted'>
+              <p>{`Tap a heart icon at the bottom right of any photo, and it'll automatically show up in Favorites`}</p>
+            </div>
           </div>
         </div>
       </section>
