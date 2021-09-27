@@ -4,6 +4,7 @@ import Loading from '@components/ui/Loading';
 import { Photo } from '@models/photo.model';
 import PhotoItem from '@components/photos/PhotoItem';
 import { PhotoService } from '@services/photo.service';
+import ScrollToTopBtn from '@components/ui/ScrollToTop/ScrollToTop';
 import classes from '@styles/Photo.module.scss';
 import { useRouter } from 'next/router';
 
@@ -28,11 +29,14 @@ function FilteredPhotosPage() {
   }
 
   return (
-    <div className={classes.grid}>
-      {photos.map((photo, index) => (
-        <PhotoItem key={index} photo={photo} />
-      ))}
-    </div>
+    <>
+      <div className={classes.grid}>
+        {photos.map((photo, index) => (
+          <PhotoItem key={index} photo={photo} />
+        ))}
+      </div>
+      <ScrollToTopBtn />
+    </>
   );
 }
 
